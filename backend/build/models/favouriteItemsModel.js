@@ -27,6 +27,7 @@ const mongoose_1 = __importStar(require("mongoose"));
 ;
 ;
 const FavouriteItemsSchema = new mongoose_1.Schema({
+    dogid: { type: String, required: true },
     toy: { type: String, required: true },
     food: { type: String, required: true },
     space: {

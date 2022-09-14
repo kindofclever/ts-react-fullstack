@@ -3,12 +3,13 @@ import mongoose from 'mongoose';
 import FavouriteItems from '../models/favouriteItemsModel';
 
 const createFavItems = (req: Request, res: Response, next: NextFunction) => {
-  const { toy, food, space: { longitude, latitude }, internationalDay, person } = req.body;
+  const { dogid, toy, food, space: { longitude, latitude }, internationalDay, person } = req.body;
 
   if (!toy || !food || !longitude || !latitude || !internationalDay || !person) return res.status(404).json({ message: `Please provide all the infos` })
 
   const favItems = new FavouriteItems ({
     _id: new mongoose.Types.ObjectId(),
+    dogid,
     toy,
     food,
     longitude,

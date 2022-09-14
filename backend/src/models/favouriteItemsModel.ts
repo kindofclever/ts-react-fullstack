@@ -1,6 +1,7 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 export interface IFavouriteItems {
+  dogid: string;
   toy: string;
   food: string;
   space: {longitude: number, latitude: number};
@@ -14,6 +15,7 @@ export interface IFavouriteItemsModel extends IFavouriteItems, Document {
 
 const FavouriteItemsSchema: Schema = new Schema(
   {
+    dogid: { type: String, required: true},
     toy: { type: String, required: true },
     food: { type: String, required: true },
     space: { 

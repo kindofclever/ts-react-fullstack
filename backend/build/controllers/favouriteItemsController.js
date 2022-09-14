@@ -6,11 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const favouriteItemsModel_1 = __importDefault(require("../models/favouriteItemsModel"));
 const createFavItems = (req, res, next) => {
-    const { toy, food, space: { longitude, latitude }, internationalDay, person } = req.body;
+    const { dogid, toy, food, space: { longitude, latitude }, internationalDay, person } = req.body;
     if (!toy || !food || !longitude || !latitude || !internationalDay || !person)
         return res.status(404).json({ message: `Please provide all the infos` });
     const favItems = new favouriteItemsModel_1.default({
         _id: new mongoose_1.default.Types.ObjectId(),
+        dogid,
         toy,
         food,
         longitude,
