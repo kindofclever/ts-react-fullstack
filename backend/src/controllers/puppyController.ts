@@ -1,9 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
 import mongoose from 'mongoose';
-import Puppy from '../models/puppy';
+import Puppy from '../models/puppyModel';
 
 const createPuppy = (req: Request, res: Response, next: NextFunction) => {
   const { breed, name, dob, size, img } = req.body;
+
+  if (!breed || !name || !dob || !size || !img) return res.status(404).json({ message: `Please provide all the infos` })
+
   const puppy = new Puppy ({
     _id: new mongoose.Types.ObjectId(),
     breed,

@@ -4,10 +4,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
-const puppy_1 = __importDefault(require("../models/puppy"));
+const puppyModel_1 = __importDefault(require("../models/puppyModel"));
 const createPuppy = (req, res, next) => {
     const { breed, name, dob, size, img } = req.body;
-    const puppy = new puppy_1.default({
+    if (!breed || !name || !dob || !size || !img)
+        return res.status(404).json({ message: `Please provide all the infos` });
+    const puppy = new puppyModel_1.default({
         _id: new mongoose_1.default.Types.ObjectId(),
         breed,
         name,
@@ -22,20 +24,20 @@ const createPuppy = (req, res, next) => {
 };
 const readPuppy = (req, res, next) => {
     const puppyId = req.params.puppyId;
-    return puppy_1.default
+    return puppyModel_1.default
         .findById(puppyId)
         .then(puppy => puppy ? res.status(200).json({ puppy }) : res.status(404).json({ message: `Puppy ${puppyId} not found in Database` }))
         .catch(error => res.status(500).json({ error }));
 };
 const readAllPuppies = (req, res, next) => {
-    return puppy_1.default
+    return puppyModel_1.default
         .find()
         .then(puppies => res.status(200).json({ puppies }))
         .catch(error => res.status(500).json({ error }));
 };
 const updatePuppy = (req, res, next) => {
     const puppyId = req.params.puppyId;
-    return puppy_1.default
+    return puppyModel_1.default
         .findById(puppyId)
         .then(puppy => {
         if (puppy) {
@@ -53,7 +55,7 @@ const updatePuppy = (req, res, next) => {
 };
 const deletePuppy = (req, res, next) => {
     const puppyId = req.params.puppyId;
-    return puppy_1.default
+    return puppyModel_1.default
         .findByIdAndDelete(puppyId)
         .then(puppy => puppy ? res.status(201).json({ message: `Puppy ${puppyId} deleted from Database` }) : res.status(404).json({ message: `Puppy ${puppyId} not found in Database...` }))
         .catch(error => res.status(500).json({ error }));

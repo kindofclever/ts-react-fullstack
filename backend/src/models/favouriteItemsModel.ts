@@ -1,0 +1,31 @@
+import mongoose, { Document, Schema } from 'mongoose';
+
+export interface IFavouriteItems {
+  toy: string;
+  food: string;
+  space: {longitude: number, latitude: number};
+  nationalDay: Date;
+  person: string;
+};
+
+export interface IFavouriteItemsModel extends IFavouriteItems, Document {
+
+};
+
+const FavouriteItemsSchema: Schema = new Schema(
+  {
+    toy: { type: String, required: true },
+    food: { type: String, required: true },
+    space: { 
+      longitude: {type: Number, required: true},
+      latitude: {type: Number, required: true},
+    },
+    nationalDay: { type: Date, required: true },
+    person: { type: String, required: true }
+  },
+  {
+    versionKey: false
+  }
+);
+
+export default mongoose.model<IFavouriteItemsModel>('FavouriteItemsSchema', FavouriteItemsSchema);
