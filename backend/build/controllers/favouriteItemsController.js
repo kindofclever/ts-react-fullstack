@@ -6,16 +6,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const favouriteItemsModel_1 = __importDefault(require("../models/favouriteItemsModel"));
 const createFavItems = (req, res, next) => {
-    const { dogid, toy, food, space: { longitude, latitude }, internationalDay, person } = req.body;
-    if (!toy || !food || !longitude || !latitude || !internationalDay || !person)
+    const { dogid, toy, food, space, internationalDay, person } = req.body;
+    if (!toy || !food || !space || !internationalDay || !person)
         return res.status(404).json({ message: `Please provide all the infos` });
     const favItems = new favouriteItemsModel_1.default({
         _id: new mongoose_1.default.Types.ObjectId(),
         dogid,
         toy,
         food,
-        longitude,
-        latitude,
+        space,
         internationalDay,
         person
     });
@@ -28,12 +27,14 @@ const readFavItems = (req, res, next) => {
     const favItemsId = req.params.favItemsId;
     return favouriteItemsModel_1.default
         .findById(favItemsId)
+        .populate('puppy')
         .then(itemList => itemList ? res.status(200).json({ itemList }) : res.status(404).json({ message: `Favourite items ${favItemsId}} not found in Database` }))
         .catch(error => res.status(500).json({ error }));
 };
 const readAllFavItems = (req, res, next) => {
     return favouriteItemsModel_1.default
         .find()
+        .populate('puppy')
         .then(items => res.status(200).json({ items }))
         .catch(error => res.status(500).json({ error }));
 };

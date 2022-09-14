@@ -4,7 +4,7 @@ export interface IFavouriteItems {
   dogid: string;
   toy: string;
   food: string;
-  space: {longitude: number, latitude: number};
+  space: number;
   internationalDay: Date;
   person: string;
 };
@@ -18,11 +18,8 @@ const FavouriteItemsSchema: Schema = new Schema(
     dogid: { type: String, required: true},
     toy: { type: String, required: true },
     food: { type: String, required: true },
-    space: { 
-      longitude: {type: Number, required: true},
-      latitude: {type: Number, required: true},
-    },
-    nationalDay: { type: Date, required: true },
+    space: { type: Number, required: true},
+    internationalDay: { type: Date, required: true },
     person: { type: String, required: true }
   },
   {

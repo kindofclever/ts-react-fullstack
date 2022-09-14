@@ -3,17 +3,16 @@ import mongoose from 'mongoose';
 import FavouriteItems from '../models/favouriteItemsModel';
 
 const createFavItems = (req: Request, res: Response, next: NextFunction) => {
-  const { dogid, toy, food, space: { longitude, latitude }, internationalDay, person } = req.body;
+  const { dogid, toy, food, space, internationalDay, person } = req.body;
 
-  if (!toy || !food || !longitude || !latitude || !internationalDay || !person) return res.status(404).json({ message: `Please provide all the infos` })
+  if (!toy || !food || !space || !internationalDay || !person) return res.status(404).json({ message: `Please provide all the infos` })
 
   const favItems = new FavouriteItems ({
     _id: new mongoose.Types.ObjectId(),
     dogid,
     toy,
     food,
-    longitude,
-    latitude,
+    space,
     internationalDay,
     person
   });
@@ -27,6 +26,7 @@ const readFavItems = (req: Request, res: Response, next: NextFunction) => {
   const favItemsId = req.params.favItemsId;
   return FavouriteItems
     .findById(favItemsId)
+    .populate('puppy')
     .then(itemList => itemList ? res.status(200).json({ itemList }) : res.status(404).json({ message: `Favourite items ${favItemsId}} not found in Database` }))
     .catch(error => res.status(500).json({ error }));
 };
@@ -34,6 +34,7 @@ const readFavItems = (req: Request, res: Response, next: NextFunction) => {
 const readAllFavItems = (req: Request, res: Response, next: NextFunction) => {
   return FavouriteItems
     .find()
+    .populate('puppy')
     .then(items => res.status(200).json({ items }))
     .catch(error => res.status(500).json({ error }));
 };
