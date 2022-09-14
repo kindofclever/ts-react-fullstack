@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import { config } from './config/config';
 import Logging from './library/logging';
 import puppyRoutes from './routes/puppyRoutes';
+import favItemsRoutes from './routes/favItemsRoutes';
 
 const app = express();
 
@@ -43,6 +44,7 @@ const startServer = () => {
   });
   // Routes
   app.use('/puppies', puppyRoutes);
+  app.use('/favitems', favItemsRoutes);
   // Healthcheck
   app.get('/healthcheck', (req, res, next) => res.status(200).json({message: 'I am healthy!'}));
 

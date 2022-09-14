@@ -4,7 +4,7 @@ export interface IFavouriteItems {
   toy: string;
   food: string;
   space: {longitude: number, latitude: number};
-  nationalDay: Date;
+  internationalDay: Date;
   person: string;
 };
 
@@ -28,4 +28,4 @@ const FavouriteItemsSchema: Schema = new Schema(
   }
 );
 
-export default mongoose.model<IFavouriteItemsModel>('FavouriteItemsSchema', FavouriteItemsSchema);
+export default mongoose.model<IFavouriteItemsModel>('FavouriteItems', FavouriteItemsSchema);

@@ -38,4 +38,4 @@ const FavouriteItemsSchema = new mongoose_1.Schema({
 }, {
     versionKey: false
 });
-exports.default = mongoose_1.default.model('FavouriteItemsSchema', FavouriteItemsSchema);
+exports.default = mongoose_1.default.model('FavouriteItems', FavouriteItemsSchema);

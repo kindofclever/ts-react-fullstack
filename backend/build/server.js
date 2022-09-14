@@ -9,6 +9,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const config_1 = require("./config/config");
 const logging_1 = __importDefault(require("./library/logging"));
 const puppyRoutes_1 = __importDefault(require("./routes/puppyRoutes"));
+const favItemsRoutes_1 = __importDefault(require("./routes/favItemsRoutes"));
 const app = (0, express_1.default)();
 // Connect to mongoose
 mongoose_1.default
@@ -45,6 +46,7 @@ const startServer = () => {
     });
     // Routes
     app.use('/puppies', puppyRoutes_1.default);
+    app.use('/favitems', favItemsRoutes_1.default);
     // Healthcheck
     app.get('/healthcheck', (req, res, next) => res.status(200).json({ message: 'I am healthy!' }));
     // Errorhandler
