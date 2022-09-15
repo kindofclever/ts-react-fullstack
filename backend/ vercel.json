@@ -1,4 +1,6 @@
 {
+  "buildCommand": "rm -rf build/ && tsc",
+  "outputDirectory": "build",
   "version": 2,
   "builds": [
     {
@@ -11,6 +13,5 @@
       "src": "/(.*)",
       "dest": "@vercel/node"
     }
-  ],
-
+  ]
 }
