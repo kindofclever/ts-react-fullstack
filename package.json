@@ -1,7 +1,5 @@
 {
    "scripts": {
-    "start": "cd client/ ",
-    "build": "rm -rf build/ && tsc"
-  }
- 
+      "start": "cd client && npm install && npm run build && cd .. && cd backend && npm install && npm start"
+   }
 }

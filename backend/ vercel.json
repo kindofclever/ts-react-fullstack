@@ -1,0 +1,5 @@
+{
+  "buildCommand": "rm -rf build/ && tsc",
+  "installCommand": "npm install",
+  "outputDirectory": "build"
+}

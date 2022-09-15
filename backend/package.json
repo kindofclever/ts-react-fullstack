@@ -9,7 +9,7 @@
     "build": "rm -rf build/ && tsc"
   },
   "engines": {
-    "node": "v16.15.0"
+    "node": "16.15.0"
   },
   "author": "Sandra Gufler",
   "license": "ISC",

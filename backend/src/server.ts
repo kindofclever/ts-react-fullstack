@@ -1,4 +1,4 @@
-import express, { request } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import http from 'http';
 import path from 'path';
 import mongoose from 'mongoose';
@@ -47,7 +47,7 @@ const startServer = () => {
   app.use('/api/puppies', puppyRoutes);
   app.use('/api/favitems', favItemsRoutes);
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../../client/build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, '/Users/Sache/Desktop/ts-react-fullstack/client/build/', 'index.html'));
   });
   // Healthcheck
   app.get('/healthcheck', (req, res, next) => res.status(200).json({message: 'I am healthy!'}));
