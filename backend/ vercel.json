@@ -1,7 +1,16 @@
 {
-  "buildCommand": "rm -rf build/ && tsc",
-  "installCommand": "npm install",
-  "outputDirectory": "build",
-  "public": true,
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "./src/server.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "@vercel/node"
+    }
+  ],
+
 }

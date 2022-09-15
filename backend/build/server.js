@@ -48,6 +48,9 @@ const startServer = () => {
     // Routes
     app.use('/api/puppies', puppyRoutes_1.default);
     app.use('/api/favitems', favItemsRoutes_1.default);
+    app.get('*', (req, res) => {
+        res.sendFile(path_1.default.resolve(__dirname, '/Users/Sache/Desktop/ts-react-fullstack/client/build/', 'index.html'));
+    });
     // Healthcheck
     app.get('/healthcheck', (req, res, next) => res.status(200).json({ message: 'I am healthy!' }));
     // Errorhandler
