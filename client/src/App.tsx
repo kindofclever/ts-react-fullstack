@@ -1,11 +1,33 @@
-import './App.css';
+import { useState, useEffect } from 'react';
+import { IPuppiesData } from './types/puppiesType';
+import Header from './components/Header';
+import ListOfPuppies from './components/ListOfPuppies';
 
-function App() {
+
+const App = () => {
+  const [puppies, setPuppies] = useState<IPuppiesData['puppies']>([]);
+
+  useEffect(() => {
+    const getPuppyDataFromApi = async () => {
+      try {
+        const responseObject = await fetch('/api/puppies');
+        const puppiesData = await responseObject.json();
+        setPuppies(puppiesData.puppies);
+        console.log(puppies)        
+      } catch (error) {
+        console.log(error)
+      };
+    }
+    getPuppyDataFromApi(); 
+  }, []);
+
   return (
-    <div className="App">
-      hello world
-    </div>
-  );
+    <main>
+      <Header />
+      <ListOfPuppies puppies={puppies}/>
+    </main>
+  )
 }
 
 export default App;
+
