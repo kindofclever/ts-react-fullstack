@@ -28,6 +28,7 @@ const readFavItems = (req, res, next) => {
     return favouriteItemsModel_1.default
         .findById(favItemsId)
         .populate('puppy')
+        .select('-__v')
         .then(itemList => itemList ? res.status(200).json({ itemList }) : res.status(404).json({ message: `Favourite items ${favItemsId}} not found in Database` }))
         .catch(error => res.status(500).json({ error }));
 };
@@ -35,6 +36,7 @@ const readAllFavItems = (req, res, next) => {
     return favouriteItemsModel_1.default
         .find()
         .populate('puppy')
+        .select('-__v')
         .then(items => res.status(200).json({ items }))
         .catch(error => res.status(500).json({ error }));
 };

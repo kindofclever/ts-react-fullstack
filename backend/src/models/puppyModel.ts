@@ -1,12 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose';
+import { IPuppy } from '../types/puppyType';
 
-export interface IPuppy {
-  breed: string;
-  name: string;
-  dob: Date;
-  size: number;
-  img: string;
-};
 
 export interface IPuppyModel extends IPuppy, Document {
 

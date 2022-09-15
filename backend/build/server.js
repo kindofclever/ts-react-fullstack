@@ -45,8 +45,8 @@ const startServer = () => {
         next();
     });
     // Routes
-    app.use('/puppies', puppyRoutes_1.default);
-    app.use('/favitems', favItemsRoutes_1.default);
+    app.use('/api/puppies', puppyRoutes_1.default);
+    app.use('/api/favitems', favItemsRoutes_1.default);
     // Healthcheck
     app.get('/healthcheck', (req, res, next) => res.status(200).json({ message: 'I am healthy!' }));
     // Errorhandler

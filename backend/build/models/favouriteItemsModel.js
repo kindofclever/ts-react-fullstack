@@ -27,13 +27,13 @@ const mongoose_1 = __importStar(require("mongoose"));
 ;
 ;
 const FavouriteItemsSchema = new mongoose_1.Schema({
-    dogid: { type: String, required: true },
+    dogid: { type: mongoose_1.Schema.Types.ObjectId, required: true, ref: 'Puppy' },
     toy: { type: String, required: true },
     food: { type: String, required: true },
     space: { type: Number, required: true },
     internationalDay: { type: Date, required: true },
     person: { type: String, required: true }
 }, {
-    versionKey: false
+    timestamps: true
 });
 exports.default = mongoose_1.default.model('FavouriteItems', FavouriteItemsSchema);

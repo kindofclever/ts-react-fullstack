@@ -1,5 +1,6 @@
 import express, { request } from 'express';
 import http from 'http';
+import path from 'path';
 import mongoose from 'mongoose';
 import { config } from './config/config';
 import Logging from './library/logging';
@@ -27,7 +28,7 @@ const startServer = () => {
     // Log the request
     Logging.info(`Incoming -> Method: [${req.method}] --- Url: [${req.url}] --- IP: [${req.socket.remoteAddress}]`);
     // Log the response
-    Logging.info(`Incoming -> Method: [${req.method}] --- Url: [${req.url}] --- IP: [${req.socket.remoteAddress}]--- Status: [${res.statusCode}]`);
+    Logging.info(`Response -> Status: [${res.statusCode}]`);
     next();
   })
   app.use(express.urlencoded({extended: true}));
@@ -43,8 +44,11 @@ const startServer = () => {
     next();
   });
   // Routes
-  app.use('/puppies', puppyRoutes);
-  app.use('/favitems', favItemsRoutes);
+  app.use('/api/puppies', puppyRoutes);
+  app.use('/api/favitems', favItemsRoutes);
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../../client/build', 'index.html'));
+  });
   // Healthcheck
   app.get('/healthcheck', (req, res, next) => res.status(200).json({message: 'I am healthy!'}));
 

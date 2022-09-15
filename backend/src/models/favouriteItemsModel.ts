@@ -15,7 +15,7 @@ export interface IFavouriteItemsModel extends IFavouriteItems, Document {
 
 const FavouriteItemsSchema: Schema = new Schema(
   {
-    dogid: { type: String, required: true},
+    dogid: { type: Schema.Types.ObjectId, required: true, ref: 'Puppy'},
     toy: { type: String, required: true },
     food: { type: String, required: true },
     space: { type: Number, required: true},
@@ -23,7 +23,7 @@ const FavouriteItemsSchema: Schema = new Schema(
     person: { type: String, required: true }
   },
   {
-    versionKey: false
+    timestamps: true 
   }
 );
 

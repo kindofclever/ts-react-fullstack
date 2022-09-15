@@ -1,4 +1,4 @@
-export interface Puppy {
+export interface IPuppy {
   breed: string;
   name: string;
   dob: Date;
