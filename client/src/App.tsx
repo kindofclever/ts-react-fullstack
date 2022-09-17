@@ -1,11 +1,16 @@
-import { useState, useEffect } from 'react';
-import { IPuppiesData } from './types/puppiesType';
-import Header from './components/Header';
-import ListOfPuppies from './components/ListOfPuppies';
 
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'; 
+import Puppy from './components/Puppy';
+import Home from './components/Home';
+import { IPuppiesData } from './types/puppiesType';
+import { useEffect, useState } from 'react';
+import Submitted from './components/Submitted'
+import NotFound from './components/NotFound';
 
 const App = () => {
+
   const [puppies, setPuppies] = useState<IPuppiesData['puppies']>([]);
+  const [render, setRender]= useState(1)
 
   useEffect(() => {
     const getPuppyDataFromApi = async () => {
@@ -13,7 +18,6 @@ const App = () => {
         const responseObject = await fetch('/api/puppies');
         const puppiesData = await responseObject.json();
         setPuppies(puppiesData.puppies);
-        console.log(puppies)        
       } catch (error) {
         console.log(error)
       };
@@ -21,11 +25,18 @@ const App = () => {
     getPuppyDataFromApi(); 
   }, []);
 
+
   return (
-    <main>
-      <Header />
-      <ListOfPuppies puppies={puppies}/>
-    </main>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home puppies={puppies} render={render} setRender={setRender} />}/>
+        <Route path='/submitted' element={<Submitted />}/>
+        <Route path='/notfound' element={<NotFound />}/>
+        <Route path='/:slug'>
+          <Route path='/:slug' element={<Puppy puppies={puppies} render={render} setRender={setRender}  />}/>
+        </Route>
+      </Routes>
+    </Router>
   )
 }
 

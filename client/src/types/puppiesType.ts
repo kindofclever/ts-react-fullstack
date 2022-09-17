@@ -1,8 +1,8 @@
 export interface IPuppiesData {
   puppies: {  _id: string;
-    name: string;
+    name: string | undefined;
     breed: string;
     dob: Date;
-    size: number;
+    size?: number;
     img: string;}[]
 }
