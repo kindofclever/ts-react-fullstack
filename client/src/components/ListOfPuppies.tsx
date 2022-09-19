@@ -37,7 +37,7 @@ return (
           onMouseEnter={()=>showButtonHandler(i)}>
         <div className='flex w-[80vw] justify-evenly items-center mb-5'>
           <div className={'flex flex-col justify-center items-start text-[#262620]'}>
-            <h3>I'am a <span className={'text-[#5230d2] mb-3'}>{puppy.breed}</span></h3>
+            <h3>I'm a <span className={'text-[#5230d2] mb-3'}>{puppy.breed}</span></h3>
             <h3>And my withers meassures <span className={'text-[#5230d2]'}>{puppy.size}</span> cm</h3>
             <h3>My birthday is <span className={'text-[#5230d2]'}>{moment(puppy.dob).format('MMMM Do YYYY')}</span></h3>
           </div>

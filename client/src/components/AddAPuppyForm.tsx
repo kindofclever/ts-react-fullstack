@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { IPuppyData } from '../types/puppyType';
 import { IPuppiesData } from '../types/puppiesType';
+import { useNavigate } from 'react-router';
 
 interface IAddPuppyFormComponent extends IPuppiesData {
   render: number,
@@ -9,6 +10,7 @@ interface IAddPuppyFormComponent extends IPuppiesData {
 };
 
 const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({render, setRender, setPuppies, puppies}) => {
+  const navigate = useNavigate();
   
   const [formInput, setFormInput] = useState({
     name: '',
@@ -65,6 +67,7 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({render, setRender, set
       img: ''
     })
     window.location.reload();
+    navigate('/submitted')
   };
 
   return (

@@ -7,7 +7,7 @@ const router = express.Router();
 router.post('/', ValidateSchema(Schemas.puppy.create), controller.createPuppy);
 router.get('/', controller.readAllPuppies);
 router.get('/:puppyId', controller.readPuppy);
-router.patch('/:puppyId', ValidateSchema(Schemas.puppy.update), controller.updatePuppy);
+router.patch('/:puppyId', controller.updatePuppy);
 router.delete('/:puppyId', controller.deletePuppy);
 
 export = router; 

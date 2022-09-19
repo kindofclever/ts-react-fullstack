@@ -6,6 +6,7 @@ import { IPuppiesData } from './types/puppiesType';
 import { useEffect, useState } from 'react';
 import Submitted from './components/Submitted'
 import NotFound from './components/NotFound';
+import Edited from './components/Edited';
 
 const App = () => {
 
@@ -32,6 +33,7 @@ const App = () => {
         <Route path='/' element={<Home puppies={puppies} render={render} setRender={setRender} />}/>
         <Route path='/submitted' element={<Submitted />}/>
         <Route path='/notfound' element={<NotFound />}/>
+        <Route path='/edited' element={<Edited />}/>
         <Route path='/:slug'>
           <Route path='/:slug' element={<Puppy puppies={puppies} render={render} setRender={setRender}  />}/>
         </Route>
