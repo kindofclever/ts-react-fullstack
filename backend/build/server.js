@@ -63,3 +63,4 @@ const startServer = () => {
     http_1.default.createServer(app).listen(config_1.config.server.port, () => logging_1.default.info(`-------- Server is listening on port: [${config_1.config.server.port}] --------`));
 };
 // comment for git...
+module.exports = app;

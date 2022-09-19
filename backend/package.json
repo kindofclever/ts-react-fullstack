@@ -2,14 +2,14 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Backend for a fullstack app with ts, react, express and mongoDB",
-  "main": "src/server.ts",
+  "main": "build/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": " rm -rf build/ && tsc && node build/server.js",
-    "build": "rm -rf build/ && tsc"
+    "start": "node build/server.js",
+    "build": "tsc"
   },
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   },
   "author": "Sandra Gufler",
   "license": "ISC",
