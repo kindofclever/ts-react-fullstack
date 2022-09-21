@@ -73,7 +73,7 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
     <section className='bg-[#f84a4a] flex flex-col justify-start items-center my-5 rounded-lg'>
       <h1 className='text-[#5230d2] text-xl p-3 md:p-0 md:text-4xl font-extrabold text-center my-5'>Wanna add a sweet puppy to the collection? Do it here!</h1>
       <form className='flex flex-col justify-center items-end'>
-        <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
+        <fieldset className='p-2 md:p-4 flex justify-center items-center w-[70vw]'>
           <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620] text-[#f4f7f2] p-3 mr-5' htmlFor="name">What is your puppys name?</label>
           <input 
             className='mb-1 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
@@ -85,7 +85,7 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
             onChange={handleChange}
             name='name' />
         </fieldset>
-        <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
+        <fieldset className='p-2 md:p-4 flex justify-center items-center w-[70vw]'>
           <label className='w-[40%] shadow-xl text-center rotate-[5deg] bg-[#262620] text-[#f4f7f2] p-3 mr-5' htmlFor="breed">What breed is it?</label>
           <input 
             className='mb-1 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
@@ -96,7 +96,7 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
             onChange={handleChange} 
             name='breed'/>
         </fieldset>
-        <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
+        <fieldset className='p-2 md:p-4 flex justify-center items-center w-[70vw]'>
           <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620]   text-[#f4f7f2]  p-3 mr-5' htmlFor="dob">When is its birthday?</label>
           <input 
             className='my-1 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
@@ -107,7 +107,7 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
             onChange={handleChange} 
             name='dob'/>
         </fieldset>
-        <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
+        <fieldset className='p-2 md:p-4 flex justify-center items-center w-[70vw]'>
           <label className='w-[40%] shadow-xl text-center rotate-[5deg] bg-[#262620] text-[#f4f7f2] p-3 mr-5' htmlFor="size">How many cm do its withers meassure?</label>
           <input 
             className='mb-1 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
@@ -119,7 +119,7 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
             onChange={handleChange}
             name='size' />
         </fieldset>
-        <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
+        <fieldset className='p-2 md:p-4 flex justify-center items-center w-[70vw]'>
           <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620]  text-[#f4f7f2] p-3 mr-5' htmlFor="img">Provide the URL for an image!</label>
           <input 
             className='mb-1 w-full h-10 p-3 text-[#262620] bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
