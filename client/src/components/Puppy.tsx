@@ -83,12 +83,12 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, render, setRender}) => {
                   onClick={toggleState}>
                     Edit me
                 </button>
-                <div>
+              </div>
+              <div>
                   {editButtonClicked? 
                   <EditAPuppyForm puppies={puppies} editButtonClicked={editButtonClicked} setEditButtonClicked={setEditButtonClicked} puppyID={puppyID}/>
                   : ''}
                 </div>
-              </div>
             </div>
           )
         } else return''

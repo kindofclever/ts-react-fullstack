@@ -74,9 +74,9 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
       <h1 className='text-[#5230d2] text-4xl font-extrabold my-5'>Wanna add a sweet puppy to the collection? Do it here!</h1>
       <form className='flex flex-col justify-center items-end'>
         <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
-          <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620] text-[#f4f7f2] p-1 mr-5' htmlFor="name">What is your puppys name?</label>
+          <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620] text-[#f4f7f2] p-3 mr-5' htmlFor="name">What is your puppys name?</label>
           <input 
-            className='my-3 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
+            className='mb-1 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
             type="text" 
             required 
             id='name'
@@ -86,9 +86,9 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
             name='name' />
         </fieldset>
         <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
-          <label className='w-[40%] shadow-xl text-center rotate-[5deg] bg-[#262620] text-[#f4f7f2] p-1 mr-5' htmlFor="breed">What breed is it?</label>
+          <label className='w-[40%] shadow-xl text-center rotate-[5deg] bg-[#262620] text-[#f4f7f2] p-3 mr-5' htmlFor="breed">What breed is it?</label>
           <input 
-            className='my-3 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
+            className='mb-1 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
             type="text" 
             required 
             id='breed' 
@@ -97,9 +97,9 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
             name='breed'/>
         </fieldset>
         <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
-          <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620]   text-[#f4f7f2]  p-1 mr-5' htmlFor="dob">When is its birthday?</label>
+          <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620]   text-[#f4f7f2]  p-3 mr-5' htmlFor="dob">When is its birthday?</label>
           <input 
-            className='my-3 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
+            className='my-1 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
             type="date" 
             required 
             id='dob'
@@ -108,9 +108,9 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
             name='dob'/>
         </fieldset>
         <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
-          <label className='w-[40%] shadow-xl text-center rotate-[5deg] bg-[#262620] text-[#f4f7f2] p-1 mr-5' htmlFor="size">How many cm do its withers meassure?</label>
+          <label className='w-[40%] shadow-xl text-center rotate-[5deg] bg-[#262620] text-[#f4f7f2] p-3 mr-5' htmlFor="size">How many cm do its withers meassure?</label>
           <input 
-            className='my-3 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
+            className='mb-1 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
             type="number" 
             required 
             id='size' 
@@ -120,9 +120,9 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
             name='size' />
         </fieldset>
         <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
-          <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620]  text-[#f4f7f2] p-1 mr-5' htmlFor="img">Provide the URL for an image!</label>
+          <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620]  text-[#f4f7f2] p-3 mr-5' htmlFor="img">Provide the URL for an image!</label>
           <input 
-            className='my-3 w-full h-10 p-3 text-[#262620] bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
+            className='mb-1 w-full h-10 p-3 text-[#262620] bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
             type="text" 
             required 
             id='img' 
