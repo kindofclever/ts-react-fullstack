@@ -62,30 +62,32 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, render, setRender}) => {
               <div className='bg-[#f84a4a] text-3xl flex justify-center items-center rotate-2 px-6 py-2 '>
                <h1>{puppy.name}</h1>
               </div>
-              <h1>{puppy.breed}</h1>
-              <h1>{moment(puppy.dob).format('MMMM Do YYYY')}</h1>
-              <h1>{puppy.size}</h1>
-              <Link to='/'> 
+              <h1 className='mb-5 text-[#f4f7f2] text-3xl'>I am a {puppy.breed}.</h1>
+              <h1 className='mb-5 text-[#f4f7f2] text-3xl'>My birthday is {moment(puppy.dob).format('MMMM Do YYYY')}.</h1>
+              <h1 className='mb-5 text-[#f4f7f2] text-3xl'>And my withers are {puppy.size}cm high.</h1>
+              <div className='flex justify-evenly items-center'>
+                <Link to='/'> 
+                  <button 
+                    className='bg-[#f84a4a] text-[#f4f7f2] py-2 px-5 rounded-xl m-5' 
+                    onClick={handleDelete}>
+                      Delete me
+                  </button>
+                </Link>
+                <Link to='/'> 
+                  <button className='bg-[#5230d2] text-[#f4f7f2] py-2 px-5 rounded-xl m-5'>
+                      Go Back
+                  </button>
+                </Link>
                 <button 
-                  className='bg-white text-black'
-                  onClick={handleDelete}>
-                    Delete me
+                  className='bg-[#0cc6ca] text-[#f4f7f2] py-2 px-5 rounded-xl m-5'
+                  onClick={toggleState}>
+                    Edit me
                 </button>
-              </Link>
-              <Link to='/'> 
-                <button className='bg-white text-black'>
-                    Go Back
-                </button>
-              </Link>
-              <button 
-                className='bg-white text-black'
-                onClick={toggleState}>
-                  Edit me
-              </button>
-              <div>
-                {editButtonClicked? 
-                 <EditAPuppyForm puppies={puppies} editButtonClicked={editButtonClicked} setEditButtonClicked={setEditButtonClicked} puppyID={puppyID}/>
-                : ''}
+                <div>
+                  {editButtonClicked? 
+                  <EditAPuppyForm puppies={puppies} editButtonClicked={editButtonClicked} setEditButtonClicked={setEditButtonClicked} puppyID={puppyID}/>
+                  : ''}
+                </div>
               </div>
             </div>
           )
