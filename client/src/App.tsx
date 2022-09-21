@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     const getPuppyDataFromApi = async () => {
       try {
-        const responseObject = await fetch('/api/puppies');
+        const responseObject = await fetch('https://puppy-backend.onrender.com/api/puppies');
         const puppiesData = await responseObject.json();
         setPuppies(puppiesData.puppies);
       } catch (error) {

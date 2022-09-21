@@ -44,7 +44,7 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
     };
   
     (async () => {
-      const rawResponse = await fetch(`/api/puppies/${puppyID}`, {
+      const rawResponse = await fetch(`https://puppy-backend.onrender.com/api/puppies/${puppyID}`, {
         method: 'PATCH',
         headers: {
           'Accept': 'application/json',
