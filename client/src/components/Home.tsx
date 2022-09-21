@@ -11,6 +11,7 @@ interface IHomeComponent extends IPuppiesData {
 
 const Home: React.FC<IHomeComponent> = (props : IPuppiesData, {setRender, render}) => {
   const [puppies, setPuppies] = useState<IPuppiesData['puppies']>([]);
+  const [addButtonClicked, setAddButtonClicked] = useState(false);
 
   useEffect(() => {
     const getPuppyDataFromApi = async () => {
@@ -25,12 +26,31 @@ const Home: React.FC<IHomeComponent> = (props : IPuppiesData, {setRender, render
     getPuppyDataFromApi(); 
   }, []);
 
+  const toggleState = (): void => {
+    setAddButtonClicked(!addButtonClicked)
+  };
+
   return (
-    <main className='flex flex-col justify-center items-center onClick={handleClick}'>
+    <div className='flex flex-col justify-center items-center'>
       <Header />
-      <ListOfPuppies puppies={puppies} render={render} setRender={setRender} />
-      <AddAPuppyForm puppies={puppies} setPuppies={setPuppies} render={render} setRender={setRender}/> 
-    </main>
+      <button 
+        onClick={toggleState}
+        className='bg-[#f84a4a] text-[#f4f7f2] text-3xl py-2 px-5 rounded-xl'>
+          Add a puppy!
+      </button>
+      <main className='grid grid-col-1 justify-center items-center onClick={handleClick} m-5'>
+        <ListOfPuppies puppies={puppies} />
+        <div >
+          {addButtonClicked 
+            ?<AddAPuppyForm 
+              puppies={puppies} 
+              setPuppies={setPuppies} 
+              addButtonClicked={addButtonClicked} 
+              setAddButtonClicked={setAddButtonClicked}/>
+            : ''}
+        </div>
+      </main>
+    </div>
   )
 }
 

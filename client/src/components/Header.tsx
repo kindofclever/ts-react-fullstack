@@ -3,7 +3,7 @@ import { SiDatadog } from 'react-icons/si';
 
 const Header = () => {
   return (
-    <header className={'w-[80v] flex flex-col justify-center items-center mb-10'}>
+    <header className={'w-[80v] flex flex-col justify-center items-center mt-2 mb-10'}>
      <h2 className={'text-3xl text-[#f84a4a] italic bold tracking-wider pt-1'}>! Look at our sweet puppy pictures</h2>
       <div className={'flex justify-between items-center p-2 border-[#5230d2] border-y-2'}>
         <SiDatadog className={' text-[#f84a4a] mr-5 bg-[#f4f7f2]'} size={50} />

@@ -52,12 +52,19 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, render, setRender}) => {
       {puppies.map(puppy => {
         if (puppy._id === puppyID) {
           return (
-            <div className='text-white flex flex-col justify-center items-center'>
-              <h1>{puppy.name}</h1>
+            <div className='text-[#f4f7f2] flex flex-col justify-center items-center'>
+
+              <img 
+                src={puppy.img} 
+                alt={`A dog called ${puppy.name}`}
+                width='300px'
+                className='rounded-full mt-5' />
+              <div className='bg-[#f84a4a] text-3xl flex justify-center items-center rotate-2 px-6 py-2 '>
+               <h1>{puppy.name}</h1>
+              </div>
               <h1>{puppy.breed}</h1>
               <h1>{moment(puppy.dob).format('MMMM Do YYYY')}</h1>
               <h1>{puppy.size}</h1>
-              <h1>{puppy.img}</h1>
               <Link to='/'> 
                 <button 
                   className='bg-white text-black'

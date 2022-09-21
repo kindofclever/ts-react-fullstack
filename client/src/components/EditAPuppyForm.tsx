@@ -19,7 +19,7 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
     breed: 'New breed',
     dob: 'YYYY-MM-DD',
     size: 0,
-    img: 'New image url'
+    img: 'https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
   })
 
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
     breed: '',
     dob: '0000-00-00',
     size: 0,
-    img: ''
+    img: 'https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
     })
     window.location.reload();
   };
@@ -145,7 +145,7 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
                     <button 
                       className='p-2 shadow-xl w-[30%] bg-[#5230d2] rounded-lg mb-3 text-[#f4f7f2] mr-4'
                       onClick={handleClick}>
-                      Submit
+                      Edit
                     </button>
                     
             </form>
