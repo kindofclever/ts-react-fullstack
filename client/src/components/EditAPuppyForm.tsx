@@ -77,11 +77,11 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
       {puppies.map(puppy => {
         if(puppy._id === puppyID){
           return ( 
-            <section className='bg-[#0cc6ca] flex flex-col justify-start items-center w-[80vw] mb-3 text-black rounded-lg'>
-              <h1 className='text-[#5230d2] text-4xl font-extrabold my-5'>Update my infos here</h1>
+            <section className='bg-[#0cc6ca] flex flex-col justify-start items-center w-[90vw] md:w-[80vw] mb-3 text-black rounded-lg'>
+              <h1 className='text-[#5230d2] text-xl md:text-4xl text-center font-extrabold my-5'>Update my infos here</h1>
               <form className='flex flex-col justify-center items-end'>
                 <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
-                  <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620] text-[#f4f7f2] p-3 mr-5' htmlFor="name">What is your puppys name?</label>
+                  <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620] text-[#f4f7f2] p-0 md:p-3 mr-5' htmlFor="name">What is your puppys name?</label>
                   <input 
                     className='my-1 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
                     type="text" 
@@ -93,7 +93,7 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
                     name='name' />
                 </fieldset>
                 <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
-                  <label className='w-[40%] shadow-xl text-center rotate-[5deg] bg-[#262620] text-[#f4f7f2] p-3 mr-5' htmlFor="breed">What breed is it?</label>
+                  <label className='w-[40%] shadow-xl text-center rotate-[5deg] bg-[#262620] text-[#f4f7f2] p-0 md:p-3 mr-5' htmlFor="breed">What breed is it?</label>
                   <input 
                     className='my-1 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
                     type="text" 
@@ -104,7 +104,7 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
                     name='breed'/>
                 </fieldset>
                 <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
-                  <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620]   text-[#f4f7f2]  p-3 mr-5' htmlFor="dob">When is its birthday?</label>
+                  <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620]   text-[#f4f7f2]  p-0 md:p-3 mr-5' htmlFor="dob">When is its birthday?</label>
                   <input 
                     className='my-1 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
                     type="date" 
@@ -115,7 +115,7 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
                     name='dob'/>
                 </fieldset>
                 <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
-                  <label className='w-[40%] shadow-xl text-center rotate-[5deg] bg-[#262620] text-[#f4f7f2] p-3 mr-5' htmlFor="size">How many cm do its withers meassure?</label>
+                  <label className='w-[40%] shadow-xl text-center rotate-[5deg] bg-[#262620] text-[#f4f7f2] p-0 md:p-3 mr-5' htmlFor="size">How many cm do its withers meassure?</label>
                   <input 
                     className='my-1 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
                     type="number" 
@@ -127,7 +127,7 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
                     name='size' />
                 </fieldset>
                 <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
-                  <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620]  text-[#f4f7f2] p-3 mr-5' htmlFor="img">Provide the URL for an image!</label>
+                  <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620]  text-[#f4f7f2] p-0 md:p-3 mr-5' htmlFor="img">Provide the URL for an image!</label>
                   <input 
                     className='my-1 w-full h-10 p-3 text-[#262620] bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
                     type="text" 

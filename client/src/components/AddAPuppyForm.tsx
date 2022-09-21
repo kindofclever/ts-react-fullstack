@@ -71,7 +71,7 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
 
   return (
     <section className='bg-[#f84a4a] flex flex-col justify-start items-center my-5 rounded-lg'>
-      <h1 className='text-[#5230d2] text-4xl font-extrabold my-5'>Wanna add a sweet puppy to the collection? Do it here!</h1>
+      <h1 className='text-[#5230d2] text-xl p-3 md:p-0 md:text-4xl font-extrabold text-center my-5'>Wanna add a sweet puppy to the collection? Do it here!</h1>
       <form className='flex flex-col justify-center items-end'>
         <fieldset className='p-4 flex justify-center items-center w-[70vw]'>
           <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620] text-[#f4f7f2] p-3 mr-5' htmlFor="name">What is your puppys name?</label>
