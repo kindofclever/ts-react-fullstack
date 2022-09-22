@@ -6,8 +6,16 @@ import { config } from './config/config';
 import Logging from './library/logging';
 import puppyRoutes from './routes/puppyRoutes';
 import favItemsRoutes from './routes/favItemsRoutes';
+import cors from 'cors';
 
 const app = express();
+
+// Cors
+const allowedOrigins = ['main.d3mfuxjxgnbn1p.amplifyapp.com'];
+
+const options: cors.CorsOptions = {
+  origin: allowedOrigins
+};
 
 // Connect to mongoose
 mongoose
@@ -31,6 +39,7 @@ const startServer = () => {
     Logging.info(`Response -> Status: [${res.statusCode}]`);
     next();
   })
+  app.use(cors(options));
   app.use(express.urlencoded({extended: true}));
   app.use(express.json());
     // Rules for the API
@@ -43,6 +52,7 @@ const startServer = () => {
     }
     next();
   });
+  
   // Routes
   app.use('/api/puppies', puppyRoutes);
   app.use('/api/favitems', favItemsRoutes);
