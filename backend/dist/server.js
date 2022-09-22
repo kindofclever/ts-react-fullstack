@@ -5,13 +5,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const http_1 = __importDefault(require("http"));
-const path_1 = __importDefault(require("path"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const config_1 = require("./config/config");
 const logging_1 = __importDefault(require("./library/logging"));
 const puppyRoutes_1 = __importDefault(require("./routes/puppyRoutes"));
 const favItemsRoutes_1 = __importDefault(require("./routes/favItemsRoutes"));
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
+// Cors
+const allowedOrigins = ['main.d3mfuxjxgnbn1p.amplifyapp.com'];
+const options = {
+    origin: allowedOrigins
+};
 // Connect to mongoose
 mongoose_1.default
     .connect(config_1.config.mongo.url)
@@ -33,13 +38,14 @@ const startServer = () => {
         logging_1.default.info(`Response -> Status: [${res.statusCode}]`);
         next();
     });
+    app.use((0, cors_1.default)(options));
     app.use(express_1.default.urlencoded({ extended: true }));
     app.use(express_1.default.json());
     // Rules for the API
     app.use((req, res, next) => {
-        res.header('Access-Control-Allow-Origin', 'https://main.d3mfuxjxgnbn1p.amplifyapp.com/, https://main.d3mfuxjxgnbn1p.amplifyapp.com/:puppyId');
+        res.header('Access-Control-Allow-Origin', '*');
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-        if (req.method == 'OPTIONS') {
+        if (req.method == 'Options') {
             res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
             return res.status(200).json({});
         }
@@ -48,9 +54,6 @@ const startServer = () => {
     // Routes
     app.use('/api/puppies', puppyRoutes_1.default);
     app.use('/api/favitems', favItemsRoutes_1.default);
-    app.get('*', (req, res) => {
-        res.sendFile(path_1.default.resolve(__dirname, '/Users/Sache/Desktop/ts-react-fullstack/client/build/', 'index.html'));
-    });
     // Healthcheck
     app.get('/healthcheck', (req, res, next) => res.status(200).json({ message: 'I am healthy!' }));
     // Errorhandler
