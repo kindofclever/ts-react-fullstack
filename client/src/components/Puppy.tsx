@@ -27,7 +27,7 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, render, setRender}) => {
   }, []);
 
   const deletePuppy = async () => {
-    const rawResponse = await fetch(`/api/puppies/${puppyID}`,
+    const rawResponse = await fetch(`https://puppy-backend.onrender.com/api/puppies/${puppyID}`,
      {
       method: 'Delete',
       headers: {
