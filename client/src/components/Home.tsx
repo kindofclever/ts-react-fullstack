@@ -6,11 +6,9 @@ import Header from './Header'
 import ListOfPuppies from './ListOfPuppies'
 
 interface IHomeComponent extends IPuppiesData {
-  render: number,
-  setRender: React.Dispatch<React.SetStateAction<number>>
 };
 
-const Home: React.FC<IHomeComponent> = (props : IPuppiesData, {setRender, render}) => {
+const Home: React.FC<IHomeComponent> = (props : IPuppiesData) => {
   const [puppies, setPuppies] = useState<IPuppiesData['puppies']>([]);
   const [addButtonClicked, setAddButtonClicked] = useState(false);
 

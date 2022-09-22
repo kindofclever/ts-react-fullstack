@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import moment from 'moment';
 import { IPuppiesData } from '../types/puppiesType';
 import { IPuppyData } from '../types/puppyType';
 import { useNavigate } from 'react-router-dom'
@@ -21,8 +20,6 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
     size: 0,
     img: 'https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
   })
-
-  const navigate = useNavigate();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();

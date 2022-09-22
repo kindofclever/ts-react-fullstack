@@ -6,11 +6,9 @@ import EditAPuppyForm from './EditAPuppyForm';
 import axios from 'axios';
 
 interface IPuppyComponent extends IPuppiesData {
-  render: number,
-  setRender: React.Dispatch<React.SetStateAction<number>>,
 };
 
-const Puppy: React.FC<IPuppyComponent> = ({puppies, render, setRender}) => {
+const Puppy: React.FC<IPuppyComponent> = ({puppies}) => {
   const navigate = useNavigate();
   const { slug } = useParams();
   const [puppyID, setPuppyID] = useState('');

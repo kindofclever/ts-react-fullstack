@@ -11,7 +11,7 @@ import cors from 'cors';
 const app = express();
 
 // Cors
-const allowedOrigins = ['main.d3mfuxjxgnbn1p.amplifyapp.com'];
+const allowedOrigins = ['https://main.d3mfuxjxgnbn1p.amplifyapp.com/', 'http://localhost:3000'];
 
 const options: cors.CorsOptions = {
   origin: allowedOrigins

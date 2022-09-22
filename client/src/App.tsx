@@ -9,7 +9,6 @@ import NotFound from './components/NotFound';
 const App = () => {
 
   const [puppies, setPuppies] = useState<IPuppiesData['puppies']>([]);
-  const [render, setRender]= useState(1)
 
   useEffect(() => {
     const getPuppyDataFromApi = async () => {
@@ -28,10 +27,10 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Home puppies={puppies} render={render} setRender={setRender} />}/>
+        <Route path='/' element={<Home puppies={puppies} />}/>
         <Route path='/notfound' element={<NotFound />}/>
         <Route path='/:slug'>
-          <Route path='/:slug' element={<Puppy puppies={puppies} render={render} setRender={setRender}  />}/>
+          <Route path='/:slug' element={<Puppy puppies={puppies} />}/>
         </Route>
       </Routes>
     </Router>
