@@ -30,7 +30,7 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, render, setRender}) => {
     try {
     const rawResponse = await fetch(`https://puppy-backend.onrender.com/api/puppies/${puppyID}`,
      {
-      method: 'Delete',
+      method: 'DELETE',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
