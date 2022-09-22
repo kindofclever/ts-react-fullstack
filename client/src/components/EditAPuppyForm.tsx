@@ -104,7 +104,7 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
                     name='breed'/>
                 </fieldset>
                 <fieldset className='p-2 md:p-4 flex justify-center items-center w-[70vw]'>
-                  <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620]   text-[#f4f7f2]  p-0 md:p-3 mr-5' htmlFor="dob">When is its birthday?</label>
+                  <label className='w-[40%] shadow-xl text-center rotate-[-5deg] bg-[#262620]   text-[#f4f7f2]  p-0 md:p-3 mr-5' htmlFor="dob">Its birthday?</label>
                   <input 
                     className='my-1 w-full h-10 p-3 bg-[#f4f7f2] placeholder-[#5230d2] rounded-lg' 
                     type="date" 

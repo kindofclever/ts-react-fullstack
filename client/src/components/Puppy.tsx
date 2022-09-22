@@ -22,11 +22,12 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, render, setRender}) => {
       } 
       setPuppyID(slug);
     } else { 
-      setPuppyID('not found');
+      setPuppyID('notfound');
     }
   }, []);
 
   const deletePuppy = async () => {
+    try {
     const rawResponse = await fetch(`https://puppy-backend.onrender.com/api/puppies/${puppyID}`,
      {
       method: 'Delete',
@@ -36,6 +37,9 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, render, setRender}) => {
       },
     });
     const content = await rawResponse.json();
+     } catch (err) {
+        console.log(err);
+     }
     }
   
   const handleDelete = (): void => {
