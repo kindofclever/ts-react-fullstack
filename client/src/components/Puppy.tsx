@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { IPuppiesData } from '../types/puppiesType';
 import moment from 'moment';
 import EditAPuppyForm from './EditAPuppyForm';
+import axios from 'axios';
 
 interface IPuppyComponent extends IPuppiesData {
   render: number,
@@ -18,32 +19,25 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, render, setRender}) => {
   useEffect (() => {
     if (slug) {
       if (slug.length !== 24) {
+        console.log(`wrong = ${slug}`)
         navigate('/notfound');
-      } 
-      setPuppyID(slug);
+      } else {
+        console.log(`correct = ${slug}`);
+        setPuppyID(slug);
+      }
     } else { 
+      console.log(`verybad = ${slug}`)
       setPuppyID('0');
-    }
+    } 
   }, []);
 
   const deletePuppy = async () => {
-    console.log(puppyID)
     try {
-    const rawResponse = await fetch(`https://puppy-backend.onrender.com/api/puppies/${puppyID}`,
-     {
-      method: 'DELETE',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'include',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-    });
-    const content = await rawResponse.json();
-     } catch (err) {
-        console.log(err);
-     }
+      const res = await axios.delete(`https://puppy-backend.onrender.com/api/puppies${puppyID}`)
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
     }
   
   const handleDelete = (): void => {

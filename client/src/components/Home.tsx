@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { IPuppiesData } from '../types/puppiesType'
 import AddAPuppyForm from './AddAPuppyForm'
@@ -16,9 +17,8 @@ const Home: React.FC<IHomeComponent> = (props : IPuppiesData, {setRender, render
   useEffect(() => {
     const getPuppyDataFromApi = async () => {
       try {
-        const responseObject = await fetch('https://puppy-backend.onrender.com/api/puppies');
-        const puppiesData = await responseObject.json();
-        setPuppies(puppiesData.puppies);
+        const responseObject = await axios('https://puppy-backend.onrender.com/api/puppies');
+        setPuppies(responseObject.data.puppies);
       } catch (error) {
         console.log(error)
       };
