@@ -22,16 +22,19 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, render, setRender}) => {
       } 
       setPuppyID(slug);
     } else { 
-      setPuppyID('notfound');
+      setPuppyID('0');
     }
   }, []);
 
   const deletePuppy = async () => {
+    console.log(puppyID)
     try {
     const rawResponse = await fetch(`https://puppy-backend.onrender.com/api/puppies/${puppyID}`,
      {
-      mode: 'no-cors',
       method: 'DELETE',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'include',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

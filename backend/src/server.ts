@@ -6,6 +6,7 @@ import { config } from './config/config';
 import Logging from './library/logging';
 import puppyRoutes from './routes/puppyRoutes';
 import favItemsRoutes from './routes/favItemsRoutes';
+import cors from 'cors'; 
 
 const app = express();
 
