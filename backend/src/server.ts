@@ -21,6 +21,9 @@ mongoose
       Logging.error('!!!!!!!! Unable to connect to MongoDB !!!!!!!!'); 
       Logging.error(error)
   });
+app.use(cors({
+    origin: '*'
+}));
 
 // Start server when connected to MongoDB, otherwise exit
 const startServer = () => { 
