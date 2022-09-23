@@ -44,7 +44,7 @@ const startServer = () => {
   app.use(express.json());
     // Rules for the API
   app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://main.d3mfuxjxgnbn1p.amplifyapp.com/');
+    res.header('Access-Control-Allow-Origin', '*');
     res.header('Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     if (req.method == 'Options') {
