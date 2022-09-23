@@ -31,7 +31,7 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, setPuppies, render}) => {
 
   const handleDelete = async () => {
     try {
-      await fetch(`https://puppy-backend.onrender.com/api/puppies/${puppyID}`, {
+      await fetch(`https://puppy-backend.onrender.com/api/puppies/${puppyID}`,{
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',
