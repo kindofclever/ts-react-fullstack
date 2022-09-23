@@ -6,10 +6,12 @@ import { useNavigate } from 'react-router';
 interface IAddPuppyFormComponent extends IPuppiesData {
   setPuppies: React.Dispatch<React.SetStateAction<any>>,
   addButtonClicked: boolean,
-  setAddButtonClicked: React.Dispatch<React.SetStateAction<boolean>>
+  setAddButtonClicked: React.Dispatch<React.SetStateAction<boolean>>,
+  setRender: React.Dispatch<React.SetStateAction<number>>,
+  render: number
 };
 
-const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, addButtonClicked, setAddButtonClicked}) => {
+const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, addButtonClicked, setAddButtonClicked, setRender, render}) => {
   const navigate = useNavigate();
   
   const [formInput, setFormInput] = useState({
@@ -66,7 +68,6 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
       size: 0,
       img: 'https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
     })
-    window.location.reload();
   };
 
   return (

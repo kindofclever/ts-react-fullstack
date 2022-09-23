@@ -6,13 +6,17 @@ import EditAPuppyForm from './EditAPuppyForm';
 import axios from 'axios';
 
 interface IPuppyComponent extends IPuppiesData {
+  setPuppies: React.Dispatch<React.SetStateAction<any>>,
+  setRender: React.Dispatch<React.SetStateAction<number>>,
+  render: number
 };
 
-const Puppy: React.FC<IPuppyComponent> = ({puppies}) => {
+const Puppy: React.FC<IPuppyComponent> = ({puppies, setPuppies, render, setRender}) => {
   const navigate = useNavigate();
   const { slug } = useParams();
   const [puppyID, setPuppyID] = useState('');
   const [editButtonClicked, setEditButtonClicked] = useState(false);
+  
 
   useEffect (() => {
     if (slug) {
@@ -27,24 +31,27 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies}) => {
       console.log(`verybad = ${slug}`)
       setPuppyID('0');
     } 
-  }, []);
+  }, [navigate, slug, puppies, render]);
 
-  const deletePuppy = async () => {
+  const handleDelete = async () => {
     try {
-      const res = await axios.delete(`https://puppy-backend.onrender.com/api/puppies${puppyID}`)
-      console.log(res)
+      const rawResponse = await fetch(`https://puppy-backend.onrender.com/api/puppies/${puppyID}`, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+      });
     } catch (error) {
       console.log(error)
-    }
+      }
+      setRender(() => render + 1);
     }
   
-  const handleDelete = (): void => {
-      deletePuppy();
-  };
 
   const toggleState = (): void => {
     setEditButtonClicked(!editButtonClicked)
-};
+  };
 
 
   return (

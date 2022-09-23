@@ -6,9 +6,11 @@ import Header from './Header'
 import ListOfPuppies from './ListOfPuppies'
 
 interface IHomeComponent extends IPuppiesData {
+  setRender: React.Dispatch<React.SetStateAction<number>>,
+  render: number
 };
 
-const Home: React.FC<IHomeComponent> = (props : IPuppiesData) => {
+const Home: React.FC<IHomeComponent> = (props : IPuppiesData, {render, setRender}) => {
   const [puppies, setPuppies] = useState<IPuppiesData['puppies']>([]);
   const [addButtonClicked, setAddButtonClicked] = useState(false);
 
@@ -22,7 +24,7 @@ const Home: React.FC<IHomeComponent> = (props : IPuppiesData) => {
       };
     }
     getPuppyDataFromApi(); 
-  }, []);
+  }, [render]);
 
   const toggleState = (): void => {
     setAddButtonClicked(!addButtonClicked)
@@ -43,6 +45,8 @@ const Home: React.FC<IHomeComponent> = (props : IPuppiesData) => {
             ?<AddAPuppyForm 
               puppies={puppies} 
               setPuppies={setPuppies} 
+              render={render}
+              setRender={setRender}
               addButtonClicked={addButtonClicked} 
               setAddButtonClicked={setAddButtonClicked}/>
             : ''}
