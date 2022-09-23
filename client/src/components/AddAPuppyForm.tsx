@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { IPuppyData } from '../types/puppyType';
 import { IPuppiesData } from '../types/puppiesType';
-import { useNavigate } from 'react-router';
 
 interface IAddPuppyFormComponent extends IPuppiesData {
   setPuppies: React.Dispatch<React.SetStateAction<any>>,
@@ -16,7 +15,7 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
   const [formInput, setFormInput] = useState({
     name: '',
     breed: '',
-    dob: 'YYYY-MM-DD',
+    dob: '2000-01-01',
     size: 0,
     img: 'https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
   })
@@ -63,7 +62,7 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
     setFormInput({
       name: '',
       breed: '',
-      dob: '0000-00-00',
+      dob: '2000-01-01',     
       size: 0,
       img: 'https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
     })
@@ -131,16 +130,16 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
             onChange={handleChange}
             name='img' />
         </fieldset>
-             <button 
-              className='p-2 shadow-xl w-[30%] bg-[#5230d2] rounded-lg mb-3 text-[#f4f7f2] mr-4'
-              onClick={() => setAddButtonClicked(!addButtonClicked)}>
-                Cancel
-            </button>
-            <button 
-              className='p-2 shadow-xl w-[30%] bg-[#5230d2] rounded-lg mb-3 text-[#f4f7f2] mr-4'
-              onClick={handleClick}>
-              Submit
-            </button>
+        <button 
+          className='p-2 shadow-xl w-[30%] bg-[#5230d2] rounded-lg mb-3 text-[#f4f7f2] mr-4'
+          onClick={() => setAddButtonClicked(!addButtonClicked)}>
+            Cancel
+        </button>
+        <button 
+          className='p-2 shadow-xl w-[30%] bg-[#5230d2] rounded-lg mb-3 text-[#f4f7f2] mr-4'
+          onClick={handleClick}>
+          Submit
+        </button>
       </form>
     </section>
   )

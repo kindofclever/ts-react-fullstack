@@ -3,7 +3,6 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { IPuppiesData } from '../types/puppiesType';
 import moment from 'moment';
 import EditAPuppyForm from './EditAPuppyForm';
-import axios from 'axios';
 
 interface IPuppyComponent extends IPuppiesData {
   setPuppies: React.Dispatch<React.SetStateAction<any>>,
@@ -11,32 +10,28 @@ interface IPuppyComponent extends IPuppiesData {
   render: number
 };
 
-const Puppy: React.FC<IPuppyComponent> = ({puppies, setPuppies, render, setRender}) => {
+const Puppy: React.FC<IPuppyComponent> = ({puppies, setPuppies, render}) => {
   const navigate = useNavigate();
   const { slug } = useParams();
   const [puppyID, setPuppyID] = useState('');
   const [editButtonClicked, setEditButtonClicked] = useState<boolean>(false);
-  const [rend, setRend] = useState<number>(1);
   
 
   useEffect (() => {
     if (slug) {
       if (slug.length !== 24) {
-        console.log(`wrong = ${slug}`)
         navigate('/notfound');
       } else {
-        console.log(`correct = ${slug}`);
         setPuppyID(slug);
       }
     } else { 
-      console.log(`verybad = ${slug}`)
       setPuppyID('0');
     } 
   }, [navigate, slug, puppies, render]);
 
   const handleDelete = async () => {
     try {
-      const rawResponse = await fetch(`https://puppy-backend.onrender.com/api/puppies/${puppyID}`, {
+      await fetch(`https://puppy-backend.onrender.com/api/puppies/${puppyID}`, {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',
@@ -60,8 +55,9 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, setPuppies, render, setRende
       {puppies.map(puppy => {
         if (puppy._id === puppyID) {
           return (
-            <div className='text-[#f4f7f2] flex flex-col justify-center items-center'>
-
+            <div 
+              key={puppy._id}
+              className='text-[#f4f7f2] flex flex-col justify-center items-center'>
               <img 
                 src={puppy.img} 
                 alt={`A dog called ${puppy.name}`}
