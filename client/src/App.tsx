@@ -22,7 +22,7 @@ const App = () => {
       };
     }
     getPuppyDataFromApi(); 
-  }, [render, puppies]);
+  }, [render]);
 
 
   return (
