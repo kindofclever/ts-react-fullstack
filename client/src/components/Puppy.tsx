@@ -42,6 +42,7 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, setPuppies, render}) => {
       console.log(error)
       }
       setPuppies([...puppies])
+      setEditButtonClicked(!editButtonClicked);
     }
   
 
