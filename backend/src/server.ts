@@ -7,11 +7,12 @@ import Logging from './library/logging';
 import puppyRoutes from './routes/puppyRoutes';
 import favItemsRoutes from './routes/favItemsRoutes';
 import cors from 'cors';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 
 const app = express();
 
 // Cors
-const allowedOrigins = ['https://main.d3mfuxjxgnbn1p.amplifyapp.com/', 'http://localhost:3000'];
+const allowedOrigins = ['https://main.d3mfuxjxgnbn1p.amplifyapp.com/'];
 
 const options: cors.CorsOptions = {
   origin: allowedOrigins
@@ -40,6 +41,13 @@ const startServer = () => {
     next();
   })
   app.use(cors(options));
+  app.use('/', createProxyMiddleware({ 
+    target: 'https://main.d3mfuxjxgnbn1p.amplifyapp.com/', //original url
+    changeOrigin: true, 
+    onProxyRes: function (proxyRes, req, res) {
+       proxyRes.headers['Access-Control-Allow-Origin'] = '*';
+    }
+}));
   app.use(express.urlencoded({extended: true}));
   app.use(express.json());
     // Rules for the API
