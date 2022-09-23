@@ -15,7 +15,8 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, setPuppies, render, setRende
   const navigate = useNavigate();
   const { slug } = useParams();
   const [puppyID, setPuppyID] = useState('');
-  const [editButtonClicked, setEditButtonClicked] = useState(false);
+  const [editButtonClicked, setEditButtonClicked] = useState<boolean>(false);
+  const [rend, setRend] = useState<number>(1);
   
 
   useEffect (() => {
@@ -45,7 +46,7 @@ const Puppy: React.FC<IPuppyComponent> = ({puppies, setPuppies, render, setRende
     } catch (error) {
       console.log(error)
       }
-      setRender(() => render + 1);
+      setPuppies([...puppies])
     }
   
 
