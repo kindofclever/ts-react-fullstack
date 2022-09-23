@@ -14,7 +14,7 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
     name: 'New name',
     breed: 'New breed',
     dob: '2000-01-01',
-    size: 0,
+       size: 0,
     img: 'https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
   })
 
@@ -37,8 +37,8 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
       img: formInput.img
     };
   
-    const updatePuppy = async () => {
-      await fetch(`https://puppy-backend.onrender.com/api/puppies/${puppyID}`, {
+    (async () => {
+      const rawResponse = await fetch(`https://puppy-backend.onrender.com/api/puppies/${puppyID}`, {
         method: 'PATCH',
         headers: {
           'Accept': 'application/json',
@@ -46,9 +46,7 @@ const EditAPuppyForm: React.FC<IEditAPuppyFormComponent> = ({puppies, puppyID, s
         },
         body: JSON.stringify(editedPuppy)
       });
-    };
-
-    updatePuppy();
+    })();
     
     setFormInput({
     name: '',
