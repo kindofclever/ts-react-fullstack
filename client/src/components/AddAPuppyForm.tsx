@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { IPuppyData } from '../types/puppyType';
 import { IPuppiesData } from '../types/puppiesType';
+import axios from 'axios';
 
 interface IAddPuppyFormComponent extends IPuppiesData {
   setPuppies: React.Dispatch<React.SetStateAction<any>>,
@@ -47,16 +48,8 @@ const AddAPuppyForm: React.FC<IAddPuppyFormComponent> = ({ setPuppies, puppies, 
     };
 
     (async () => {
-      const rawResponse = await fetch('https://puppy-backend.onrender.com/api/puppies', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newPuppy)
-      });
-      const content = await rawResponse.json();
-      setPuppies(() => [...puppies, content.puppy]);
+      const rawResponse = await axios.post('https://puppy-backend.onrender.com/api/puppies', newPuppy);
+      console.log(rawResponse)
     })();
 
     setFormInput({
