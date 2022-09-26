@@ -40,7 +40,6 @@ const startServer = () => {
     next();
   })
   app.use(cors(options));
- 
   app.use(express.urlencoded({extended: true}));
   app.use(express.json());
     // Rules for the API
