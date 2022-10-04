@@ -1,5 +1,5 @@
-#Happy-Puppy-App
-##Fullstack app created with typeScript, NodeJS, express and React.
+# Happy-Puppy-App
+## Fullstack app created with typeScript, NodeJS, express and React.
 
 React Puppies app and Puppies API with Typescript
 In this exercise I created a puppy API with Express and Typescript. 
