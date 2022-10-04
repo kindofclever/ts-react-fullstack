@@ -38,3 +38,7 @@ Fetch an image from Unsplash API (or similar) and aggregate the data in the API 
 
 ## TypeScript
 I tried to use the provided types in Express, MonogDB and React.js
+
+## Try it out yourself 
+
+If you want to try out my code locally, don't forget to create a .env file in the backend directory. It should contain a variable called MONGO_USERNAME and one called MONGO_PASSWORD, as well as a PORT variable. To get valid credentials you need an account on mongodb.com and my permisson to the db. Just send me a message.
