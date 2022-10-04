@@ -1,4 +1,9 @@
 # Happy-Puppy-App
+
+## Current Situation 
+
+I still have problems in the deployed version, even though locally everything works as expected...
+
 ## Fullstack app created with typeScript, NodeJS, express and React.
 
 React Puppies app and Puppies API with Typescript
