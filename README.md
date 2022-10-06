@@ -2,7 +2,7 @@
 
 ## Current Situation 
 
-I still have problems in the deployed version, even though locally everything works as expected...
+I still have problems in the deployed version, even though locally everything works as expected. It may take a while to lad the puppies from the db. I think i should implement a "Loading..." component.
 
 ## Fullstack app created with typeScript, NodeJS, express and React.
 
